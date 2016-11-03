@@ -1,5 +1,5 @@
 deployment:
-develop:
-branch: master
-commands:
-- ./deploy_production.sh
+  master:
+    branch: master
+    commands:
+      - ./deploy_develop.sh
