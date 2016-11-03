@@ -33,4 +33,5 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+          chmod 755 ./deploy_develop.sh
           ./deploy_develop.sh
