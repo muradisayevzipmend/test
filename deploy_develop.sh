@@ -1,11 +1,12 @@
 #!/bin/bash
-lastCommit=$(git show --summary)
-	arr=($lastCommit)
-	lastCommit=${arr[4]}
-echo $lastCommit
+lastCommit=$(git log --format="%H" -n 1)
+commitId=${lastCommit:0:7}	
+echo "Last commit id is: "$commitId
 
 lastBuild=$(<last_build)
 
-changedFiles=$(git diff --no-commit-id --name-only -r $lastBuild $lastCommit)
+echo "Last build id is: "$lastBuild
+
+changedFiles=$(git diff --no-commit-id --name-only -r $lastBuild $commitId)
 
 echo $changedFiles
