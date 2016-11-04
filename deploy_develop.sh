@@ -10,3 +10,7 @@ echo "Last build id is: "$lastBuild
 changedFiles=$(git diff --no-commit-id --name-only -r $lastBuild $commitId)
 
 echo $changedFiles
+
+echo "Storing last commit id"
+echo "$commitId" > "last_build"
+echo "Last build id is now: "$(<last_build)
