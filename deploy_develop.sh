@@ -3,14 +3,13 @@ lastCommit=$(git log --format="%H" -n 1)
 commitId=${lastCommit:0:7}	
 echo "Last commit id is: "$commitId
 
-lastBuild=$(<last_build)
 
-echo "Last build id is: "$lastBuild
+echo "Last build id is: "$LAST_BUILD
 
 changedFiles=$(git diff --no-commit-id --name-only -r $lastBuild $commitId)
 
 echo $changedFiles
 
 echo "Storing last commit id"
-echo "$commitId" > "last_build"
-echo "Last build id is now: "$(<last_build)
+LAST_BUILD=$commitId
+echo "Last build id is now: "$LAST_BUILD
